@@ -56,6 +56,8 @@ call pathogen#runtime_append_all_bundles()
 let g:commandTMaxHeight=10
 
 " ---- Settings for specific language files ----
+au BufRead,BufNewFile *.mustache set syntax=html autoindent tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 autocmd BufRead,BufNewFile *.py syntax on
@@ -94,6 +96,7 @@ nmap ,a ggVG"*y
 map \c :let @/ = ""<CR>
 
 " open the ctag definition in a vertical split
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "Easy edit of vimrc
